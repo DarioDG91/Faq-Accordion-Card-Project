@@ -1,0 +1,160 @@
+.card {
+  background-color: white;
+  margin: 9.3rem 1.5rem;
+  border-radius: 1.5rem;
+  padding-bottom: 3rem;
+
+  background-image: url("/images/bg-pattern-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  margin-bottom: -4.7rem;
+
+  @include lg {
+    position: relative;
+    margin: 8rem auto;
+    max-width: 57.5rem;
+    padding: 2.5rem 6.8rem 5rem 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url("/images/bg-pattern-desktop.svg");
+    background-size: 105%;
+    background-position: bottom -10rem left -36rem;
+  }
+
+  &__box {
+    display: none;
+
+    @include lg {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-48.5%, -25%);
+      z-index: 1;
+    }
+  }
+
+  &__image {
+    margin-bottom: -4.875rem;
+   
+
+
+    .mobile {
+      display: block;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 15rem;
+      transform: translate(0, -6.8rem);
+
+      @include lg {
+        display: none;
+        flex: 1;
+        overflow: hidden;
+      }
+    }
+
+    .desktop {
+      display: none;
+      @include lg {
+        display: block;
+        transform: translate(-5.25rem);
+
+      }
+    }
+  }
+
+  &__text {
+    margin: 0 1.5rem;
+
+    @include lg {
+      flex: 1;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.95rem;
+      margin-bottom: 1rem;
+
+      @include lg {
+        text-align: left;
+        margin-bottom: 1.3rem;
+      }
+    }
+
+    .accordion {
+      line-height: 1.5;
+
+      @include lg {
+      }
+
+      &__item {
+        padding: 1.0625rem 0;
+        border-bottom: 1px solid $LightGrayishBlue;
+      }
+
+      &__question {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        text-align: left;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        font-family: "Kumbh Sans", sans-serif;
+        letter-spacing: 0.45px;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 0.6rem;
+          height: 1rem;
+          border: none;
+          background-image: url("/images/icon-arrow-down.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center center;
+          transition: transform 300ms ease-in-out;
+        }
+
+
+        &:hover {
+          cursor: pointer;
+          color: $SoftRed;
+          transition: 150ms ease-in-out;
+        }
+      }
+
+      &__question.open {
+        font-weight: 700;
+        color: $VeryDarkDesaturatedBlue;
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+
+      &__collapse {
+        transition: height 300ms ease;
+      }
+
+      &__collapse.collapse {
+        display: none;
+      }
+
+      &__collapse.collapsing {
+        height: 0;
+        overflow: hidden;
+      }
+
+      &__collapse.open {
+        display: block;
+        margin-top: 0.7rem;
+      }
+    }
+  }
+}
